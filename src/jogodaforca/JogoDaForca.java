@@ -16,6 +16,7 @@ public class JogoDaForca {
      */
     public static void main(String[] args) {
         Tela nova = new Tela();
+        nova.setLocationRelativeTo(null);
         nova.setVisible(true);
     }
     

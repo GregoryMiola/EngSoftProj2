@@ -7,9 +7,14 @@ package jogodaforca;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.OptionPaneUI;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -24,6 +29,9 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        setLookAndFeel();
+        pnl_inicio.setVisible(true);
+        pnl_partida.setVisible(false);
     }
 
     /**
@@ -34,59 +42,133 @@ public class Tela extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        pnl_multicamadas = new javax.swing.JLayeredPane();
+        pnl_inicio = new javax.swing.JPanel();
+        btn_iniciar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        pnl_partida = new javax.swing.JPanel();
         pnl_forca = new javax.swing.JPanel();
+        desenho_forca = new javax.swing.JLabel();
         pnl_superior_direito = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        cmp_letras_digitadas = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
-        pnl_inferior_direito = new javax.swing.JPanel();
+        cmp_letras_digitadas = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        pnl_area_palavras = new javax.swing.JPanel();
         pnl_palavras = new javax.swing.JPanel();
+        btn_desistir = new javax.swing.JButton();
+        btn_ok_testa_letra = new javax.swing.JButton();
         cmp_entrada_letras = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btn_ok_testa_letra = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        btn_nova_partida = new javax.swing.JMenuItem();
-        btn_recordes = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        btn_sair = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Jogo Da Forca");
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(805, 630));
+        setResizable(false);
 
-        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
-        jPanel1Layout.columnWidths = new int[] {260, 350};
-        jPanel1Layout.rowHeights = new int[] {200, 250};
-        jPanel1.setLayout(jPanel1Layout);
+        pnl_multicamadas.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        javax.swing.GroupLayout pnl_forcaLayout = new javax.swing.GroupLayout(pnl_forca);
-        pnl_forca.setLayout(pnl_forcaLayout);
-        pnl_forcaLayout.setHorizontalGroup(
-            pnl_forcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
+        btn_iniciar.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        btn_iniciar.setText("Iniciar Jogo");
+        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iniciarActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        jButton2.setText("Cadastrar Palavras");
+        jButton2.setToolTipText("");
+
+        jButton3.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        jButton3.setText("Recordes");
+        jButton3.setToolTipText("");
+
+        jLabel10.setFont(new java.awt.Font("Lucida Handwriting", 1, 60)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Jogo da Forca");
+
+        javax.swing.GroupLayout pnl_inicioLayout = new javax.swing.GroupLayout(pnl_inicio);
+        pnl_inicio.setLayout(pnl_inicioLayout);
+        pnl_inicioLayout.setHorizontalGroup(
+            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_inicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_inicioLayout.createSequentialGroup()
+                        .addGap(0, 269, Short.MAX_VALUE)
+                        .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(btn_iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 269, Short.MAX_VALUE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        pnl_forcaLayout.setVerticalGroup(
-            pnl_forcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+        pnl_inicioLayout.setVerticalGroup(
+            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_inicioLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btn_iniciar)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(257, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(pnl_forca, gridBagConstraints);
+        pnl_partida.setMinimumSize(new java.awt.Dimension(800, 600));
+        pnl_partida.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jScrollPane1.setViewportView(cmp_letras_digitadas);
+        pnl_forca.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnl_forca.setPreferredSize(new java.awt.Dimension(380, 380));
+        pnl_forca.setLayout(new java.awt.GridLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Letras digitadas que não contém");
+        desenho_forca.setToolTipText("");
+        pnl_forca.add(desenho_forca);
+
+        pnl_superior_direito.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("Letras erradas:");
+
+        cmp_letras_digitadas.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        cmp_letras_digitadas.setForeground(new java.awt.Color(255, 0, 0));
+        cmp_letras_digitadas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cmp_letras_digitadas.setText("A - B - C - D - E - F");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Pontuação:");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setText("Letras acertadas:");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Letras erradas:");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Palavras acertadas:");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Palavras erradas:");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setText("Jogo:");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText("Tema:");
 
         javax.swing.GroupLayout pnl_superior_direitoLayout = new javax.swing.GroupLayout(pnl_superior_direito);
         pnl_superior_direito.setLayout(pnl_superior_direitoLayout);
@@ -95,32 +177,72 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(pnl_superior_direitoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                    .addComponent(cmp_letras_digitadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addGroup(pnl_superior_direitoLayout.createSequentialGroup()
+                        .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnl_superior_direitoLayout.setVerticalGroup(
             pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_superior_direitoLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(cmp_letras_digitadas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(pnl_superior_direito, gridBagConstraints);
+        pnl_area_palavras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnl_area_palavras.setPreferredSize(new java.awt.Dimension(780, 130));
 
         pnl_palavras.setLayout(new java.awt.GridLayout(2, 4, 2, 2));
 
-        cmp_entrada_letras.setToolTipText("");
+        javax.swing.GroupLayout pnl_area_palavrasLayout = new javax.swing.GroupLayout(pnl_area_palavras);
+        pnl_area_palavras.setLayout(pnl_area_palavrasLayout);
+        pnl_area_palavrasLayout.setHorizontalGroup(
+            pnl_area_palavrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_area_palavrasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnl_palavras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(768, Short.MAX_VALUE))
+        );
+        pnl_area_palavrasLayout.setVerticalGroup(
+            pnl_area_palavrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_area_palavrasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnl_palavras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
 
-        jLabel2.setText("Digite uma letra ou a palavra inteira:");
+        btn_desistir.setLabel("Desistir");
+        btn_desistir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_desistirActionPerformed(evt);
+            }
+        });
 
         btn_ok_testa_letra.setText("Ok");
         btn_ok_testa_letra.addActionListener(new java.awt.event.ActionListener() {
@@ -129,97 +251,95 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnl_inferior_direitoLayout = new javax.swing.GroupLayout(pnl_inferior_direito);
-        pnl_inferior_direito.setLayout(pnl_inferior_direitoLayout);
-        pnl_inferior_direitoLayout.setHorizontalGroup(
-            pnl_inferior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_inferior_direitoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnl_inferior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_inferior_direitoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pnl_palavras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71))
-                    .addGroup(pnl_inferior_direitoLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_inferior_direitoLayout.createSequentialGroup()
-                        .addComponent(cmp_entrada_letras)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_ok_testa_letra)
-                        .addContainerGap())))
+        cmp_entrada_letras.setToolTipText("");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Digite uma letra ou a palavra inteira:");
+
+        javax.swing.GroupLayout pnl_partidaLayout = new javax.swing.GroupLayout(pnl_partida);
+        pnl_partida.setLayout(pnl_partidaLayout);
+        pnl_partidaLayout.setHorizontalGroup(
+            pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_partidaLayout.createSequentialGroup()
+                .addGroup(pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_partidaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(pnl_partidaLayout.createSequentialGroup()
+                                .addComponent(cmp_entrada_letras, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_ok_testa_letra)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_desistir))
+                    .addGroup(pnl_partidaLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnl_area_palavras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_partidaLayout.createSequentialGroup()
+                                .addComponent(pnl_forca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pnl_superior_direito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        pnl_inferior_direitoLayout.setVerticalGroup(
-            pnl_inferior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_inferior_direitoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnl_palavras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+        pnl_partidaLayout.setVerticalGroup(
+            pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_partidaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnl_superior_direito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnl_forca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(pnl_area_palavras, 128, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_inferior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_entrada_letras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_ok_testa_letra))
-                .addGap(107, 107, 107))
+                .addGap(5, 5, 5)
+                .addGroup(pnl_partidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmp_entrada_letras, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_ok_testa_letra, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_desistir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(pnl_inferior_direito, gridBagConstraints);
-
-        jMenu1.setText("Jogo");
-
-        btn_nova_partida.setText("Nova Partida");
-        btn_nova_partida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_nova_partidaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(btn_nova_partida);
-
-        btn_recordes.setText("Recordes");
-        jMenu1.add(btn_recordes);
-        jMenu1.add(jSeparator2);
-
-        btn_sair.setText("Sair");
-        jMenu1.add(btn_sair);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu3.setText("Palavras");
-
-        jMenuItem5.setText("Nova Palavra");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout pnl_multicamadasLayout = new javax.swing.GroupLayout(pnl_multicamadas);
+        pnl_multicamadas.setLayout(pnl_multicamadasLayout);
+        pnl_multicamadasLayout.setHorizontalGroup(
+            pnl_multicamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_multicamadasLayout.createSequentialGroup()
+                .addComponent(pnl_partida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnl_multicamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnl_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_multicamadasLayout.setVerticalGroup(
+            pnl_multicamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_multicamadasLayout.createSequentialGroup()
+                .addComponent(pnl_partida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnl_multicamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnl_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_multicamadas.setLayer(pnl_inicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnl_multicamadas.setLayer(pnl_partida, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_multicamadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_multicamadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 261, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void btn_ok_testa_letraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok_testa_letraActionPerformed
         String str;
@@ -231,13 +351,18 @@ public class Tela extends javax.swing.JFrame {
         cmp_entrada_letras.setText("");
     }//GEN-LAST:event_btn_ok_testa_letraActionPerformed
 
-    private void btn_nova_partidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nova_partidaActionPerformed
-        
-        /*** APENAS PARA TESTES ***
+    private void btn_desistirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desistirActionPerformed
+        pnl_inicio.setVisible(true);
+        pnl_partida.setVisible(false);
+    }//GEN-LAST:event_btn_desistirActionPerformed
+
+    private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
         palavra = new Palavra(JOptionPane.showInputDialog("Digita a palavra:"));
         atualizaCampoPalavras();
-        */
-    }//GEN-LAST:event_btn_nova_partidaActionPerformed
+        pnl_inicio.setVisible(false);
+        pnl_partida.setVisible(true);
+        setImagem(6);
+    }//GEN-LAST:event_btn_iniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,22 +373,22 @@ public class Tela extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Windows".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -275,44 +400,66 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btn_nova_partida;
+    private javax.swing.JButton btn_desistir;
+    private javax.swing.JButton btn_iniciar;
     private javax.swing.JButton btn_ok_testa_letra;
-    private javax.swing.JMenuItem btn_recordes;
-    private javax.swing.JMenuItem btn_sair;
     private javax.swing.JTextField cmp_entrada_letras;
-    private javax.swing.JTextPane cmp_letras_digitadas;
+    private javax.swing.JLabel cmp_letras_digitadas;
+    private javax.swing.JLabel desenho_forca;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel pnl_area_palavras;
     private javax.swing.JPanel pnl_forca;
-    private javax.swing.JPanel pnl_inferior_direito;
+    private javax.swing.JPanel pnl_inicio;
+    private javax.swing.JLayeredPane pnl_multicamadas;
     private javax.swing.JPanel pnl_palavras;
+    private javax.swing.JPanel pnl_partida;
     private javax.swing.JPanel pnl_superior_direito;
     // End of variables declaration//GEN-END:variables
+    private void setLookAndFeel(){
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            SwingUtilities.updateComponentTreeUI(this);
+            this.pack();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        } catch (InstantiationException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        } catch (IllegalAccessException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+}
     public void atualizaCampoPalavras(){
         int i,l;
         l = palavra.tamanho();
         pnl_palavras.removeAll();
         posicao_letra = new JLabel[l];
-        pnl_palavras.setPreferredSize(new Dimension(18*l,20));
+        pnl_palavras.setPreferredSize(new Dimension(20*l,24));
         pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: Número de Linhas,Número de Letras como número de colunas, espaço horizontal e vertical 
         
         for(i=0;i<l;i++){
             posicao_letra[i] = new JLabel();
             posicao_letra[i].setText(" ");//String.valueOf(palavra.charAt(i))
             posicao_letra[i].setBackground(Color.WHITE);
+            posicao_letra[i].setFont(new java.awt.Font("Times New Roman", 0, 24));
             posicao_letra[i].setOpaque(!palavra.getLetra(i).equals(" "));
             posicao_letra[i].setVerticalAlignment(javax.swing.SwingConstants.CENTER);
             posicao_letra[i].setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             pnl_palavras.add(posicao_letra[i]);
         }
-        pnl_inferior_direito.doLayout();
+        pnl_area_palavras.doLayout();
         pnl_palavras.doLayout();
     }
     public void imprimePalavra(){
@@ -322,5 +469,18 @@ public class Tela extends javax.swing.JFrame {
                 posicao_letra[i].setText(palavra.getLetra(i));
             }
         }
+    }
+    public int novaAltura(int alt,int lar, int nlar){
+        return alt/lar*nlar;
+    }
+    
+    public void setImagem(int index){
+        Image imagem = null;
+        ImageIcon icon = null;
+        imagem = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/jogodaforca/imagens/" + index + ".png"));
+        imagem = imagem.getScaledInstance(desenho_forca.getWidth(), novaAltura(desenho_forca.getHeight(), desenho_forca.getWidth(), pnl_forca.getWidth()), Image.SCALE_DEFAULT);
+        icon = new ImageIcon(imagem);
+            //desenho_forca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodaforca/imagens/enforcado.png")));
+        desenho_forca.setIcon(icon);
     }
 }
