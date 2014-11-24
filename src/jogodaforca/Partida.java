@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Thiago
  */
-public class Palavra {
+public class Partida {
     private String palavra;
     private String tema;
     private int erros;
@@ -38,14 +38,14 @@ public class Palavra {
         return l;
     }
 
-    public Palavra(String palavra,String tema,int total_erros) {
+    public Partida(String palavra,String tema,int total_erros) {
         int i;
         this.palavra = palavra;
         this.tema = tema;
         this.max_erros = total_erros;
         this.posicoes_visiveis = new boolean[palavra.length()];
         this.letras_erradas = new char[total_erros];
-        erros = 0;
+        this.erros = 0;
         for(i = 0;i<posicoes_visiveis.length-1;i++){
             posicoes_visiveis[i] = false;
         }
@@ -59,10 +59,11 @@ public class Palavra {
     }
     
     public String getLetrasErradas(){
-        String str = letras_erradas[0]+"";
+        String str = "",sep = "";
         int i;
-        for(i=1;i<erros;i++){
-            str = str + " - " + letras_erradas[i];
+        for(i=0;i<erros;i++){
+            if(i>0) sep = " - ";
+            str = str + sep + letras_erradas[i];
         }
         return str;
     }
