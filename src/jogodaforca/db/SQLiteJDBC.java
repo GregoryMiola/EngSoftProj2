@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 import jogodaforca.modelo.Palavra;
@@ -80,6 +82,29 @@ public class SQLiteJDBC {
 	      System.exit(0);
 	    }
 	    System.out.println("Table created successfully");
+	}
+	
+	public static List<String[]> getPontos(String sql){
+		List<String[]> lst = new ArrayList<String[]>();
+		
+		try{
+			c = DriverManager.getConnection("jdbc:sqlite:forca.db");
+			stmt = c.createStatement();
+			 
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				lst.add(new String [] { rs.getString(1), rs.getString(2) });
+			}
+			
+			stmt.close();
+			c.close();
+			rs.close();
+			
+		} catch ( Exception e ) {
+			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+  	  	}
+		
+		return lst;
 	}
 	
 	public static List<String> getTemas(String sql){

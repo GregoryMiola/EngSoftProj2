@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,7 +19,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import jogodaforca.dao.PalavrasDAO;
+import jogodaforca.dao.RecordesDAO;
 import jogodaforca.modelo.Palavra;
+import jogodaforca.modelo.Recorde;
 
 /**
  *
@@ -79,6 +82,7 @@ public class Tela extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lbl_pontuacao = new javax.swing.JLabel();
         lbl_letras_acertadas = new javax.swing.JLabel();
         lbl_letras_erradas = new javax.swing.JLabel();
         lbl_palavras_acertadas = new javax.swing.JLabel();
@@ -266,7 +270,7 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Letras erradas:");
+        jLabel1.setText("Letras Usadas:");
 
         cmp_letras_digitadas.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         cmp_letras_digitadas.setForeground(new java.awt.Color(255, 0, 0));
@@ -295,6 +299,8 @@ public class Tela extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Tema:");
 
+        lbl_pontuacao.setFont(new java.awt.Font("Arial", 1, 14));
+        
         lbl_letras_acertadas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         lbl_letras_erradas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -328,6 +334,7 @@ public class Tela extends javax.swing.JFrame {
                             .addGroup(pnl_superior_direitoLayout.createSequentialGroup()
                                 .addComponent(lbl_letras_acertadas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lbl_pontuacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_letras_erradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_palavras_acertadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_palavras_erradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -337,8 +344,9 @@ public class Tela extends javax.swing.JFrame {
         pnl_superior_direitoLayout.setVerticalGroup(
             pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_superior_direitoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
+                .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(lbl_pontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -483,27 +491,9 @@ public class Tela extends javax.swing.JFrame {
                 btn_voltar_recordesActionPerformed(evt);
             }
         });
-
+        
         tbl_recordes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tbl_recordes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nome", "Pontuação"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        
         jScrollPane1.setViewportView(tbl_recordes);
         if (tbl_recordes.getColumnModel().getColumnCount() > 0) {
             tbl_recordes.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -600,7 +590,16 @@ public class Tela extends javax.swing.JFrame {
         setImagem(partida.getErros());
         atualizaEstatisticas();
         if(partida.isFimDeJogo()){
-            if(partida.isVitorioso())JOptionPane.showMessageDialog(this, "Você ganhou!", "Fim de Jogo", JOptionPane.INFORMATION_MESSAGE);
+            if(partida.isVitorioso()){
+            	int pontuacao = partida.getAcertoDeLetras() * 15 + 100;
+            	lbl_pontuacao.setText(pontuacao + "");
+            	String msg = "Parabéns, você ganhou! Sua pontuação foi " + pontuacao + ".\n\nDigite seu nome caso deseje registrar o seu score.";
+            	String nome = JOptionPane.showInputDialog(this, msg, "Fim de Jogo", JOptionPane.QUESTION_MESSAGE);
+            	if(!nome.isEmpty()){
+            		Recorde recorde = new Recorde(nome, pontuacao);
+            		RecordesDAO.setRecordes(recorde);
+            	}
+            }
             else JOptionPane.showMessageDialog(this, "ENFORCADO!", "Fim de Jogo", JOptionPane.ERROR_MESSAGE);
             btn_chutar.setEnabled(false);
         }
@@ -693,6 +692,18 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_voltar_recordesActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    	tbl_recordes.setModel(new javax.swing.table.DefaultTableModel(
+                RecordesDAO.getRecordes(),
+                new String [] { "Nome", "Pontuação" }
+            ) {
+                Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.Integer.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types [columnIndex];
+                }
+            });
         pnl_inicio.setVisible(false);
         pnl_cadastro.setVisible(false);
         pnl_partida.setVisible(false);
@@ -752,6 +763,7 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel lbl_pontuacao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -761,7 +773,7 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel2;    
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_letras_acertadas;
     private javax.swing.JLabel lbl_letras_erradas;
@@ -827,6 +839,7 @@ public class Tela extends javax.swing.JFrame {
         return alt/lar*nlar;
     }
     public void atualizaEstatisticas(){
+    	lbl_pontuacao.setText(partida.getAcertoDeLetras()*15+"");
         lbl_letras_acertadas.setText(partida.getAcertoDeLetras()+"");
         lbl_letras_erradas.setText(partida.getErros()+"");
         lbl_palavras_acertadas.setText("0");
