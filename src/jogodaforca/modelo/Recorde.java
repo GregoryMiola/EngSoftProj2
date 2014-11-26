@@ -15,14 +15,18 @@ public class Recorde {
     private int pontos;
 
     public Recorde() {
-        this.id = 0;
         this.nome = "";
         this.pontos = 0;
     }
 
+    public Recorde(String nome, int pontos) {
+        this.nome = nome;
+        this.pontos = pontos;
+    }
+    
     public Recorde(long id, String nome, int pontos) {
         this.id = id;
-        this.nome = nome;
+    	this.nome = nome;
         this.pontos = pontos;
     }
 
@@ -49,5 +53,7 @@ public class Recorde {
     public void setPontos(int pontos) {
         this.pontos = pontos;
     }
+
+	
     
 }

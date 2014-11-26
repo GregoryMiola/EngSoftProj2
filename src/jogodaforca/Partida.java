@@ -109,7 +109,7 @@ public class Partida {
             if(letras_erradas[i]==c) v = true;
         }
         if(v){
-            JOptionPane.showMessageDialog(null, "A letra '"+c+"' j√° foi chutada!","Chute inv√°lido" , JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A letra '"+c+"' j· foi chutada!","Chute inv·lido" , JOptionPane.INFORMATION_MESSAGE);
         }else{
             erros++;
             letras_erradas[erros-1] = c;

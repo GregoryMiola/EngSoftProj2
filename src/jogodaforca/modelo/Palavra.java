@@ -10,16 +10,25 @@ package jogodaforca.modelo;
  * @author Thiago
  */
 public class Palavra {
+	private long id;
     private String palavra;
     private String tema;
     
     public Palavra(){
         this.palavra = "";
         this.tema = "";
+        this.id = 0;
     }
 
     public Palavra(String palavra, String tema) {
-        this.palavra = palavra;
+    	this.palavra = palavra;
+        this.tema = tema;
+    }
+
+
+    public Palavra(long id, String palavra, String tema) {
+    	this.id = id;
+    	this.palavra = palavra;
         this.tema = tema;
     }
 
@@ -38,5 +47,13 @@ public class Palavra {
     public void setTema(String tema) {
         this.tema = tema;
     }
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
     
 }

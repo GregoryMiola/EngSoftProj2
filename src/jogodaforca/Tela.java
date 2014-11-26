@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import jogodaforca.dao.PalavrasDAO;
 import jogodaforca.modelo.Palavra;
 
 /**
@@ -185,13 +187,18 @@ public class Tela extends javax.swing.JFrame {
 
         cmp_novo_tema.setEditable(true);
         cmp_novo_tema.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
         cmp_novo_tema.setPreferredSize(new java.awt.Dimension(60, 30));
 
         btn_salvar_palavra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btn_salvar_palavra.setText("Salvar");
         btn_salvar_palavra.setPreferredSize(new java.awt.Dimension(67, 30));
-
+		btn_salvar_palavra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	btn_salvar_palavraActionPerformed(evt);
+            }
+        });
+        
         btn_voltar_cadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btn_voltar_cadastro.setText("< Voltar");
         btn_voltar_cadastro.setPreferredSize(new java.awt.Dimension(67, 30));
@@ -267,7 +274,7 @@ public class Tela extends javax.swing.JFrame {
         cmp_letras_digitadas.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("PontuaÃ§Ã£o:");
+        jLabel3.setText("Pontuação:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Letras acertadas:");
@@ -485,7 +492,7 @@ public class Tela extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nome", "PontuaÃ§Ã£o"
+                "Nome", "Pontuação"
             }
         ) {
             Class[] types = new Class [] {
@@ -592,7 +599,7 @@ public class Tela extends javax.swing.JFrame {
         setImagem(partida.getErros());
         atualizaEstatisticas();
         if(partida.isFimDeJogo()){
-            if(partida.isVitorioso())JOptionPane.showMessageDialog(this, "VocÃª ganhou!", "Fim de Jogo", JOptionPane.INFORMATION_MESSAGE);
+            if(partida.isVitorioso())JOptionPane.showMessageDialog(this, "Você ganhou!", "Fim de Jogo", JOptionPane.INFORMATION_MESSAGE);
             else JOptionPane.showMessageDialog(this, "ENFORCADO!", "Fim de Jogo", JOptionPane.ERROR_MESSAGE);
             btn_chutar.setEnabled(false);
         }
@@ -645,6 +652,22 @@ public class Tela extends javax.swing.JFrame {
         cmp_novo_tema.setSelectedItem("");
     }//GEN-LAST:event_btn_cadastroActionPerformed
 
+    private void btn_salvar_palavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_cadastroActionPerformed
+    
+    	if(cmp_nova_palavra.getText().isEmpty() || cmp_novo_tema.getSelectedItem().toString().isEmpty()){
+    		JOptionPane.showMessageDialog(this, "Todos os campos são obrigatórios.", "Validação de Campos", JOptionPane.INFORMATION_MESSAGE);
+    		return;
+    	}
+    	
+    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText(), cmp_novo_tema.getSelectedItem().toString());
+    	PalavrasDAO.salvaPalavra(novaPalavra);
+    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Operação", JOptionPane.INFORMATION_MESSAGE);
+    	
+    	pnl_inicio.setVisible(true);
+        pnl_cadastro.setVisible(false);
+        pnl_partida.setVisible(false);
+        pnl_recordes.setVisible(false);
+    }//GEN-LAST:event_btn_voltar_cadastroActionPerformed
     private void btn_voltar_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_cadastroActionPerformed
         pnl_inicio.setVisible(true);
         pnl_cadastro.setVisible(false);
@@ -767,7 +790,7 @@ public class Tela extends javax.swing.JFrame {
         pnl_palavras.removeAll();
         posicao_letra = new JLabel[l];
         pnl_palavras.setPreferredSize(new Dimension(20*l,24));
-        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: NÃºmero de Linhas,NÃºmero de Letras como nÃºmero de colunas, espaÃ§o horizontal e vertical 
+        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: Número de Linhas,Número de Letras como número de colunas, espaço horizontal e vertical 
         
         for(i=0;i<l;i++){
             posicao_letra[i] = new JLabel();
