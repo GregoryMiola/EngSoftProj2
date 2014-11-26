@@ -6,7 +6,9 @@
 package jogodaforca;
 
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import jogodaforca.modelo.Palavra;
 
 /**
  *
@@ -38,10 +40,11 @@ public class Partida {
         return l;
     }
 
-    public Partida(String palavra,String tema,int total_erros) {
+    public Partida(ArrayList<Palavra> palavras,int total_erros) {
         int i;
-        this.palavra = palavra;
-        this.tema = tema;
+        i = (int) (Math.random() * palavras.size());
+        this.palavra = palavras.get(i).getPalavra();
+        this.tema = palavras.get(i).getTema();
         this.max_erros = total_erros;
         this.posicoes_visiveis = new boolean[palavra.length()];
         this.letras_erradas = new char[total_erros];

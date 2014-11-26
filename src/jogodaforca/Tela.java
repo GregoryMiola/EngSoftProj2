@@ -9,12 +9,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import jogodaforca.modelo.Palavra;
 
 /**
  *
@@ -23,6 +25,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Tela extends javax.swing.JFrame {
     private JLabel posicao_letra[];
     private Partida partida;
+    private ArrayList<Palavra> palavras;
 
     /**
      * Creates new form Tela
@@ -34,6 +37,7 @@ public class Tela extends javax.swing.JFrame {
         pnl_cadastro.setVisible(false);
         pnl_partida.setVisible(false);
         pnl_recordes.setVisible(false);
+        // Inicializar palavras carregando o BD de palavras na variavel
     }
 
     /**
@@ -603,7 +607,8 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_encerrarActionPerformed
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-        partida = new Partida("SORTE DOIS","Não definido",6);//JOptionPane.showInputDialog("Digita a partida:")
+        
+        partida = new Partida(palavras,6);//JOptionPane.showInputDialog("Digita a partida:")
         atualizaCampoPalavras();
         atualizaEstatisticas();
         setImagem(0);
