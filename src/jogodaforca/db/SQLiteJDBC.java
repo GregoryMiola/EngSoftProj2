@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import jogodaforca.modelo.Palavra;
+
 public class SQLiteJDBC {
 
 	private static Connection c = null;
@@ -102,6 +104,30 @@ public class SQLiteJDBC {
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				lst.add(rs.getString(1));
+			}
+			
+			stmt.close();
+			c.close();
+			rs.close();
+			
+		} catch ( Exception e ) {
+			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+  	  	}
+		
+		return lst;
+	}
+	
+	public static ArrayList<Palavra> getPalavras(String sql){
+		ArrayList<Palavra> lst = new ArrayList<Palavra>();
+		Palavra palavra;
+		try{
+			c = DriverManager.getConnection("jdbc:sqlite:forca.db");
+			stmt = c.createStatement();
+			 
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				palavra = new Palavra(Integer.parseInt(rs.getString(1)), rs.getString(3), rs.getString(2));
+				lst.add(palavra);
 			}
 			
 			stmt.close();

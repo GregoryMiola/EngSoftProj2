@@ -1,5 +1,7 @@
 package jogodaforca.dao;
 
+import java.util.ArrayList;
+
 import jogodaforca.db.SQLiteJDBC;
 import jogodaforca.modelo.Palavra;
 
@@ -17,6 +19,12 @@ public class PalavrasDAO {
 		String sql = "SELECT DISTINCT TEMA FROM PALAVRAS ORDER BY ID";
 		
 		return (String[]) SQLiteJDBC.getTemas(sql).toArray(new String[0]);
+	}
+	
+	public static ArrayList<Palavra> getPalavras(){
+		String sql = "SELECT * FROM PALAVRAS ORDER BY ID";
+		
+		return SQLiteJDBC.getPalavras(sql);
 	}
 }
 

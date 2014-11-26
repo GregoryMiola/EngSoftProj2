@@ -23,8 +23,10 @@ public class Partida {
     private boolean posicoes_visiveis[];
     private boolean fim_jogo = false;
     private boolean vitoria = false;
+    private boolean chutePalavra = false;
     
     public int chutarLetra(char c){
+
         int i,l=0;
         for(i=0;i<=palavra.length()-1;i++){
             if(c==palavra.charAt(i)){
@@ -32,6 +34,7 @@ public class Partida {
                 l++;
             }
         }
+        
         if(l==0){
             verificaLetraErrada(c);
         }else{
@@ -40,7 +43,39 @@ public class Partida {
         return l;
     }
 
-    public Partida(ArrayList<Palavra> palavras,int total_erros) {
+    public int chutarPalavra(String str){
+    	
+        int i, l = 0;
+        boolean acertou = false;
+        chutePalavra = true;
+        
+        if(palavra.equalsIgnoreCase(str)){
+        	for(i=0;i<=palavra.length()-1;i++){
+        		if(!posicoes_visiveis[i]){
+        			posicoes_visiveis[i] = true;
+        			l++;
+        		}
+			}
+        	
+        	acertou = true;
+    	}
+        
+        if(!acertou){
+        	for(i=0;i<=str.length()-1;i++){
+        		if(!posicoes_visiveis[i])
+        			verificaLetraErrada(str.charAt(i));
+        		
+        		if(fim_jogo) break;
+        	}
+        }else{
+            calcularVitoria();
+        }
+        
+        chutePalavra = false;
+        return l;
+    }
+    
+    public Partida(ArrayList<Palavra> palavras, int total_erros) {
         int i;
         i = (int) (Math.random() * palavras.size());
         this.palavra = palavras.get(i).getPalavra();
@@ -82,15 +117,19 @@ public class Partida {
     public String getLetra(int pos){
         return this.palavra.substring(pos, pos+1);
     }
+    
     public int tamanho(){
         return this.palavra.length();
     }
+    
     public boolean isFimDeJogo(){
         return fim_jogo;
     }
+    
     public boolean isVitorioso(){
         return vitoria;
     }
+    
     public boolean getPosicao(int pos){
         return posicoes_visiveis[pos];
     }
@@ -102,12 +141,16 @@ public class Partida {
         }
         return a;
     }
+    
     private void verificaLetraErrada(char c){
         int i;
         boolean v = false;
-        for(i=0;i<erros;i++){
-            if(letras_erradas[i]==c) v = true;
+        if(!chutePalavra){
+	        for(i=0;i<erros;i++){
+	            if(letras_erradas[i]==c) v = true;
+	        }
         }
+        
         if(v){
             JOptionPane.showMessageDialog(null, "A letra '"+c+"' já foi chutada!","Chute inválido" , JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -115,11 +158,12 @@ public class Partida {
             letras_erradas[erros-1] = c;
             if(erros==max_erros)fim_jogo= true;
         }
-        
     }
+
     public boolean comparaPalavra(String outraPalavra){
         return this.palavra.compareToIgnoreCase(outraPalavra)==0;
     }
+   
     private void calcularVitoria(){
         vitoria = getAcertoDeLetras()==palavra.length();
         fim_jogo = vitoria;

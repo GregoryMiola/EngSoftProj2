@@ -40,6 +40,7 @@ public class Tela extends javax.swing.JFrame {
         pnl_partida.setVisible(false);
         pnl_recordes.setVisible(false);
         // Inicializar palavras carregando o BD de palavras na variavel
+        palavras = PalavrasDAO.getPalavras();
     }
 
     /**
@@ -590,12 +591,12 @@ public class Tela extends javax.swing.JFrame {
         String str;
         str = cmp_entrada_letras.getText();
         if(str.length()==1) {
-            if(partida.chutarLetra(str.charAt(0))!=0)imprimePalavra();
-        }else if(str.length()>1){
-            if(partida.comparaPalavra(str)){
-                
-            }
+            if(partida.chutarLetra(str.charAt(0)) != 0) imprimePalavra();
         }
+        else if(str.length()>1){
+            if(partida.chutarPalavra(str) != 0) imprimePalavra();           	
+        }
+        
         setImagem(partida.getErros());
         atualizaEstatisticas();
         if(partida.isFimDeJogo()){
@@ -615,7 +616,7 @@ public class Tela extends javax.swing.JFrame {
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
         
-        partida = new Partida(palavras,6);//JOptionPane.showInputDialog("Digita a partida:")
+        partida = new Partida(palavras, 6);//JOptionPane.showInputDialog("Digita a partida:")
         atualizaCampoPalavras();
         atualizaEstatisticas();
         setImagem(0);
@@ -629,9 +630,9 @@ public class Tela extends javax.swing.JFrame {
 
     private void cmp_entrada_letrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmp_entrada_letrasKeyTyped
         char c = evt.getKeyChar();
-        if(c>64&c<91){//maiusculas
+        if((c>64&c<91) || c==199){//maiusculas
             
-        }else if(c>96&c<123){//Minusculas
+        }else if((c>96&c<123) || c==231){//Minusculas
             evt.setKeyChar((char) (c-32));
         }else if(c==10){
             if(cmp_entrada_letras.getText().charAt(0)==32){
@@ -659,10 +660,17 @@ public class Tela extends javax.swing.JFrame {
     		return;
     	}
     	
-    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText(), cmp_novo_tema.getSelectedItem().toString());
-    	PalavrasDAO.salvaPalavra(novaPalavra);
-    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Operação", JOptionPane.INFORMATION_MESSAGE);
+    	try{
+	    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText(), cmp_novo_tema.getSelectedItem().toString());
+	    	PalavrasDAO.salvaPalavra(novaPalavra);
+    	}
+    	catch (Exception e)
+    	{
+    		JOptionPane.showMessageDialog(this, "Um erro ocorreu ao salvar a palavra: ." + e.getMessage(), "Erro na Operação", JOptionPane.ERROR_MESSAGE);
+    		return;
+    	}
     	
+    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Operação", JOptionPane.INFORMATION_MESSAGE);
     	pnl_inicio.setVisible(true);
         pnl_cadastro.setVisible(false);
         pnl_partida.setVisible(false);
