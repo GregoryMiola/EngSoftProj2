@@ -47,19 +47,7 @@ public class SQLiteJDBC {
 	              " PONTOS			INTEGER    							NOT NULL)";
 	    	  stmt.executeUpdate(sql);
 	      }
-	      
-	      
-	      sql = "SELECT * FROM PALAVRAS WHERE TEMA = 'TESTE ABC' AND PALAVRA IS NOT NULL;";
-	      rs = stmt.executeQuery(sql);
-	      if(!rs.next())
-	      {
-	    	  sql = "";
-	    	  sql = "INSERT INTO PALAVRAS (TEMA, PALAVRA) VALUES ('TESTE ABC', 'TESTE A');\n"
-	    	  		+ "INSERT INTO PALAVRAS (TEMA, PALAVRA) VALUES ('TESTE ABC', 'TESTE B');\n"
-	    			+ "INSERT INTO PALAVRAS (TEMA, PALAVRA) VALUES ('TESTE ABC', 'TESTE C');"; 
-	    	  stmt.executeUpdate(sql);
-	      }
-	      
+	      	      
 	      sql = "SELECT * FROM PALAVRAS WHERE TEMA = 'BEBIDAS' AND PALAVRA IS NOT NULL;";
 	      rs = stmt.executeQuery(sql);
 	      if(!rs.next())

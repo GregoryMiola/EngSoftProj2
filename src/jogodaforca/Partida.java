@@ -38,7 +38,7 @@ public class Partida {
         if(l==0){
             verificaLetraErrada(c);
         }else{
-            calcularVitoria();
+            calcularVitoria(false);
         }
         return l;
     }
@@ -68,7 +68,7 @@ public class Partida {
         		if(fim_jogo) break;
         	}
         }else{
-            calcularVitoria();
+            calcularVitoria(true);
         }
         
         chutePalavra = false;
@@ -164,8 +164,12 @@ public class Partida {
         return this.palavra.compareToIgnoreCase(outraPalavra)==0;
     }
    
-    private void calcularVitoria(){
-        vitoria = getAcertoDeLetras()==palavra.length();
+    private void calcularVitoria(boolean isPalavra){
+    	if(isPalavra)
+    		vitoria = getAcertoDeLetras()==palavra.length();
+    	else
+    		vitoria = getAcertoDeLetras()==palavra.replace(" ", "").length();
+    	
         fim_jogo = vitoria;
     }
 }

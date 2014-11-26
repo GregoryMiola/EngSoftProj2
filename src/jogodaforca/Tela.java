@@ -661,7 +661,7 @@ public class Tela extends javax.swing.JFrame {
     	}
     	
     	try{
-	    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText(), cmp_novo_tema.getSelectedItem().toString());
+	    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText().toUpperCase(), cmp_novo_tema.getSelectedItem().toString());
 	    	PalavrasDAO.salvaPalavra(novaPalavra);
     	}
     	catch (Exception e)
@@ -671,6 +671,8 @@ public class Tela extends javax.swing.JFrame {
     	}
     	
     	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Operação", JOptionPane.INFORMATION_MESSAGE);
+    	cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
+    	palavras = PalavrasDAO.getPalavras();
     	pnl_inicio.setVisible(true);
         pnl_cadastro.setVisible(false);
         pnl_partida.setVisible(false);
@@ -799,7 +801,7 @@ public class Tela extends javax.swing.JFrame {
         posicao_letra = new JLabel[l];
         pnl_palavras.setPreferredSize(new Dimension(20*l,24));
         pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: Número de Linhas,Número de Letras como número de colunas, espaço horizontal e vertical 
-        
+        cmp_entrada_letras.setText("");
         for(i=0;i<l;i++){
             posicao_letra[i] = new JLabel();
             posicao_letra[i].setText(" ");//String.valueOf(partida.charAt(i))
