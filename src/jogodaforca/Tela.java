@@ -57,11 +57,6 @@ public class Tela extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pnl_multicamadas = new javax.swing.JLayeredPane();
-        pnl_inicio = new javax.swing.JPanel();
-        btn_iniciar = new javax.swing.JButton();
-        btn_cadastro = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         pnl_cadastro = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -70,6 +65,16 @@ public class Tela extends javax.swing.JFrame {
         cmp_novo_tema = new javax.swing.JComboBox();
         btn_salvar_palavra = new javax.swing.JButton();
         btn_voltar_cadastro = new javax.swing.JButton();
+        pnl_inicio = new javax.swing.JPanel();
+        btn_iniciar = new javax.swing.JButton();
+        btn_cadastro = new javax.swing.JButton();
+        btn_recordes = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        pnl_recordes = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btn_voltar_recordes = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_recordes = new javax.swing.JTable();
         pnl_partida = new javax.swing.JPanel();
         cmp_entrada_letras = new javax.swing.JTextField();
         pnl_superior_direito = new javax.swing.JPanel();
@@ -82,12 +87,12 @@ public class Tela extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        lbl_pontuacao = new javax.swing.JLabel();
         lbl_letras_acertadas = new javax.swing.JLabel();
         lbl_letras_erradas = new javax.swing.JLabel();
         lbl_palavras_acertadas = new javax.swing.JLabel();
         lbl_palavras_erradas = new javax.swing.JLabel();
         lbl_tema = new javax.swing.JLabel();
+        lbl_pontuacao = new javax.swing.JLabel();
         pnl_forca = new javax.swing.JPanel();
         desenho_forca = new javax.swing.JLabel();
         pnl_area_palavras = new javax.swing.JPanel();
@@ -95,11 +100,6 @@ public class Tela extends javax.swing.JFrame {
         btn_chutar = new javax.swing.JButton();
         btn_encerrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        pnl_recordes = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btn_voltar_recordes = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_recordes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo Da Forca");
@@ -108,67 +108,6 @@ public class Tela extends javax.swing.JFrame {
         setResizable(false);
 
         pnl_multicamadas.setPreferredSize(new java.awt.Dimension(800, 600));
-
-        btn_iniciar.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
-        btn_iniciar.setText("Iniciar Jogo");
-        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_iniciarActionPerformed(evt);
-            }
-        });
-
-        btn_cadastro.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
-        btn_cadastro.setText("Cadastrar Palavras");
-        btn_cadastro.setToolTipText("");
-        btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastroActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
-        jButton3.setText("Recordes");
-        jButton3.setToolTipText("");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Lucida Handwriting", 1, 60)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Jogo da Forca");
-
-        javax.swing.GroupLayout pnl_inicioLayout = new javax.swing.GroupLayout(pnl_inicio);
-        pnl_inicio.setLayout(pnl_inicioLayout);
-        pnl_inicioLayout.setHorizontalGroup(
-            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_inicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_inicioLayout.createSequentialGroup()
-                        .addGap(0, 269, Short.MAX_VALUE)
-                        .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                            .addComponent(btn_iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 269, Short.MAX_VALUE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        pnl_inicioLayout.setVerticalGroup(
-            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_inicioLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btn_iniciar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cadastro)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(257, Short.MAX_VALUE))
-        );
 
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(800, 600));
         pnl_cadastro.setRequestFocusEnabled(false);
@@ -186,24 +125,35 @@ public class Tela extends javax.swing.JFrame {
         cmp_nova_palavra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmp_nova_palavra.setToolTipText("");
         cmp_nova_palavra.setPreferredSize(new java.awt.Dimension(65, 30));
+        cmp_nova_palavra.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmp_nova_palavraFocusLost(evt);
+            }
+        });
+        cmp_nova_palavra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmp_nova_palavraKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText("Selecione ou digite um novo tema:");
 
         cmp_novo_tema.setEditable(true);
         cmp_novo_tema.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
+        cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmp_novo_tema.setNextFocusableComponent(btn_salvar_palavra);
         cmp_novo_tema.setPreferredSize(new java.awt.Dimension(60, 30));
 
         btn_salvar_palavra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btn_salvar_palavra.setText("Salvar");
         btn_salvar_palavra.setPreferredSize(new java.awt.Dimension(67, 30));
-		btn_salvar_palavra.addActionListener(new java.awt.event.ActionListener() {
+        btn_salvar_palavra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btn_salvar_palavraActionPerformed(evt);
+                btn_salvar_palavraActionPerformed(evt);
             }
         });
-        
+
         btn_voltar_cadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btn_voltar_cadastro.setText("< Voltar");
         btn_voltar_cadastro.setPreferredSize(new java.awt.Dimension(67, 30));
@@ -255,6 +205,140 @@ public class Tela extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         pnl_cadastro.add(jPanel1, gridBagConstraints);
 
+        btn_iniciar.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        btn_iniciar.setText("Iniciar Jogo");
+        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iniciarActionPerformed(evt);
+            }
+        });
+
+        btn_cadastro.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        btn_cadastro.setText("Cadastrar Palavras");
+        btn_cadastro.setToolTipText("");
+        btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastroActionPerformed(evt);
+            }
+        });
+
+        btn_recordes.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        btn_recordes.setText("Recordes");
+        btn_recordes.setToolTipText("");
+        btn_recordes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recordesActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Lucida Handwriting", 1, 60)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Jogo da Forca");
+
+        javax.swing.GroupLayout pnl_inicioLayout = new javax.swing.GroupLayout(pnl_inicio);
+        pnl_inicio.setLayout(pnl_inicioLayout);
+        pnl_inicioLayout.setHorizontalGroup(
+            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_inicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_inicioLayout.createSequentialGroup()
+                        .addGap(0, 269, Short.MAX_VALUE)
+                        .addGroup(pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(btn_iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_recordes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 269, Short.MAX_VALUE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnl_inicioLayout.setVerticalGroup(
+            pnl_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_inicioLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btn_iniciar)
+                .addGap(18, 18, 18)
+                .addComponent(btn_cadastro)
+                .addGap(18, 18, 18)
+                .addComponent(btn_recordes)
+                .addContainerGap(257, Short.MAX_VALUE))
+        );
+
+        pnl_recordes.setPreferredSize(new java.awt.Dimension(800, 600));
+        pnl_recordes.setRequestFocusEnabled(false);
+        java.awt.GridBagLayout pnl_recordesLayout = new java.awt.GridBagLayout();
+        pnl_recordesLayout.columnWidths = new int[] {0, 600, 0};
+        pnl_recordesLayout.rowHeights = new int[] {0, 400, 0};
+        pnl_recordesLayout.columnWeights = new double[] {0.0, 0.0, 0.0};
+        pnl_recordes.setLayout(pnl_recordesLayout);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recordes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        btn_voltar_recordes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btn_voltar_recordes.setText("< Voltar");
+        btn_voltar_recordes.setPreferredSize(new java.awt.Dimension(67, 30));
+        btn_voltar_recordes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltar_recordesActionPerformed(evt);
+            }
+        });
+
+        tbl_recordes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tbl_recordes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "PontuaÃ§Ã£o"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tbl_recordes);
+        if (tbl_recordes.getColumnModel().getColumnCount() > 0) {
+            tbl_recordes.getColumnModel().getColumn(0).setPreferredWidth(200);
+        }
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_voltar_recordes, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_voltar_recordes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        pnl_recordes.add(jPanel2, gridBagConstraints);
+
         pnl_partida.setMinimumSize(new java.awt.Dimension(800, 600));
         pnl_partida.setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -270,7 +354,7 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Letras Usadas:");
+        jLabel1.setText("Letras erradas:");
 
         cmp_letras_digitadas.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         cmp_letras_digitadas.setForeground(new java.awt.Color(255, 0, 0));
@@ -279,7 +363,7 @@ public class Tela extends javax.swing.JFrame {
         cmp_letras_digitadas.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Pontuação:");
+        jLabel3.setText("PontuaÃ§Ã£o:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Letras acertadas:");
@@ -299,8 +383,6 @@ public class Tela extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Tema:");
 
-        lbl_pontuacao.setFont(new java.awt.Font("Arial", 1, 14));
-        
         lbl_letras_acertadas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         lbl_letras_erradas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -310,6 +392,8 @@ public class Tela extends javax.swing.JFrame {
         lbl_palavras_erradas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         lbl_tema.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        lbl_pontuacao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnl_superior_direitoLayout = new javax.swing.GroupLayout(pnl_superior_direito);
         pnl_superior_direito.setLayout(pnl_superior_direitoLayout);
@@ -331,22 +415,23 @@ public class Tela extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnl_superior_direitoLayout.createSequentialGroup()
-                                .addComponent(lbl_letras_acertadas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(lbl_pontuacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_letras_erradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_palavras_acertadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_palavras_erradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_tema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lbl_tema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnl_superior_direitoLayout.createSequentialGroup()
+                                .addComponent(lbl_letras_acertadas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lbl_pontuacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnl_superior_direitoLayout.setVerticalGroup(
             pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_superior_direitoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(lbl_pontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(lbl_pontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnl_superior_direitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -473,61 +558,6 @@ public class Tela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnl_recordes.setPreferredSize(new java.awt.Dimension(800, 600));
-        pnl_recordes.setRequestFocusEnabled(false);
-        java.awt.GridBagLayout pnl_recordesLayout = new java.awt.GridBagLayout();
-        pnl_recordesLayout.columnWidths = new int[] {0, 600, 0};
-        pnl_recordesLayout.rowHeights = new int[] {0, 400, 0};
-        pnl_recordesLayout.columnWeights = new double[] {0.0, 0.0, 0.0};
-        pnl_recordes.setLayout(pnl_recordesLayout);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recordes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-
-        btn_voltar_recordes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btn_voltar_recordes.setText("< Voltar");
-        btn_voltar_recordes.setPreferredSize(new java.awt.Dimension(67, 30));
-        btn_voltar_recordes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_voltar_recordesActionPerformed(evt);
-            }
-        });
-        
-        tbl_recordes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        
-        jScrollPane1.setViewportView(tbl_recordes);
-        if (tbl_recordes.getColumnModel().getColumnCount() > 0) {
-            tbl_recordes.getColumnModel().getColumn(0).setPreferredWidth(200);
-        }
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_voltar_recordes, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_voltar_recordes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        pnl_recordes.add(jPanel2, gridBagConstraints);
-
         javax.swing.GroupLayout pnl_multicamadasLayout = new javax.swing.GroupLayout(pnl_multicamadas);
         pnl_multicamadas.setLayout(pnl_multicamadasLayout);
         pnl_multicamadasLayout.setHorizontalGroup(
@@ -554,10 +584,10 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(pnl_multicamadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnl_recordes, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
         );
-        pnl_multicamadas.setLayer(pnl_inicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pnl_multicamadas.setLayer(pnl_cadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pnl_multicamadas.setLayer(pnl_partida, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnl_multicamadas.setLayer(pnl_inicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pnl_multicamadas.setLayer(pnl_recordes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnl_multicamadas.setLayer(pnl_partida, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -590,17 +620,21 @@ public class Tela extends javax.swing.JFrame {
         setImagem(partida.getErros());
         atualizaEstatisticas();
         if(partida.isFimDeJogo()){
+            btn_encerrar.setText("< Voltar");
             if(partida.isVitorioso()){
             	int pontuacao = partida.getAcertoDeLetras() * 15 + 100;
             	lbl_pontuacao.setText(pontuacao + "");
-            	String msg = "Parabéns, você ganhou! Sua pontuação foi " + pontuacao + ".\n\nDigite seu nome caso deseje registrar o seu score.";
+            	String msg = "ParabÃ©ns, vocÃª ganhou! Sua pontuaÃ§Ã£o foi " + pontuacao + ".\n\nDigite seu nome caso deseje registrar o seu score.";
             	String nome = JOptionPane.showInputDialog(this, msg, "Fim de Jogo", JOptionPane.QUESTION_MESSAGE);
             	if(!nome.isEmpty()){
             		Recorde recorde = new Recorde(nome, pontuacao);
             		RecordesDAO.setRecordes(recorde);
+                        btn_recordesActionPerformed(null);
             	}
             }
-            else JOptionPane.showMessageDialog(this, "ENFORCADO!", "Fim de Jogo", JOptionPane.ERROR_MESSAGE);
+            else {
+                JOptionPane.showMessageDialog(this, "ENFORCADO!", "Fim de Jogo", JOptionPane.ERROR_MESSAGE);
+            }
             btn_chutar.setEnabled(false);
         }
         cmp_entrada_letras.setText("");
@@ -615,10 +649,11 @@ public class Tela extends javax.swing.JFrame {
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
         
-        partida = new Partida(palavras, 6);//JOptionPane.showInputDialog("Digita a partida:")
+        partida = new Partida(palavras, 6);
         atualizaCampoPalavras();
         atualizaEstatisticas();
         setImagem(0);
+        btn_encerrar.setText("Encerrar Partida");
         btn_chutar.setEnabled(true);
         pnl_inicio.setVisible(false);
         pnl_cadastro.setVisible(false);
@@ -648,35 +683,11 @@ public class Tela extends javax.swing.JFrame {
         pnl_cadastro.setVisible(true);
         pnl_partida.setVisible(false);
         pnl_recordes.setVisible(false);
+        cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
         cmp_nova_palavra.setText("");
         cmp_novo_tema.setSelectedItem("");
     }//GEN-LAST:event_btn_cadastroActionPerformed
-
-    private void btn_salvar_palavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_cadastroActionPerformed
-    
-    	if(cmp_nova_palavra.getText().isEmpty() || cmp_novo_tema.getSelectedItem().toString().isEmpty()){
-    		JOptionPane.showMessageDialog(this, "Todos os campos são obrigatórios.", "Validação de Campos", JOptionPane.INFORMATION_MESSAGE);
-    		return;
-    	}
-    	
-    	try{
-	    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText().toUpperCase(), cmp_novo_tema.getSelectedItem().toString());
-	    	PalavrasDAO.salvaPalavra(novaPalavra);
-    	}
-    	catch (Exception e)
-    	{
-    		JOptionPane.showMessageDialog(this, "Um erro ocorreu ao salvar a palavra: ." + e.getMessage(), "Erro na Operação", JOptionPane.ERROR_MESSAGE);
-    		return;
-    	}
-    	
-    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Operação", JOptionPane.INFORMATION_MESSAGE);
-    	cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
-    	palavras = PalavrasDAO.getPalavras();
-    	pnl_inicio.setVisible(true);
-        pnl_cadastro.setVisible(false);
-        pnl_partida.setVisible(false);
-        pnl_recordes.setVisible(false);
-    }//GEN-LAST:event_btn_voltar_cadastroActionPerformed
+                                             
     private void btn_voltar_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_cadastroActionPerformed
         pnl_inicio.setVisible(true);
         pnl_cadastro.setVisible(false);
@@ -691,10 +702,10 @@ public class Tela extends javax.swing.JFrame {
         pnl_recordes.setVisible(false);
     }//GEN-LAST:event_btn_voltar_recordesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_recordesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recordesActionPerformed
     	tbl_recordes.setModel(new javax.swing.table.DefaultTableModel(
                 RecordesDAO.getRecordes(),
-                new String [] { "Nome", "Pontuação" }
+                new String [] { "Nome", "PontuaÃ§Ã£o" }
             ) {
                 Class[] types = new Class [] {
                     java.lang.String.class, java.lang.Integer.class
@@ -708,7 +719,54 @@ public class Tela extends javax.swing.JFrame {
         pnl_cadastro.setVisible(false);
         pnl_partida.setVisible(false);
         pnl_recordes.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_recordesActionPerformed
+
+    private void cmp_nova_palavraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmp_nova_palavraKeyTyped
+        char c = evt.getKeyChar();
+        if((c>64&c<91) || c==199){//maiusculas
+            
+        }else if((c>96&c<123) || c==231){//Minusculas
+            evt.setKeyChar((char) (c-32));
+        }else if(c==32){
+            if(cmp_nova_palavra.getText().length()==0) evt.consume();
+        }else evt.consume();
+    }//GEN-LAST:event_cmp_nova_palavraKeyTyped
+
+    private void cmp_nova_palavraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmp_nova_palavraFocusLost
+        if(!cmp_nova_palavra.getText().isEmpty()){
+            if(cmp_nova_palavra.getText().charAt(0)==32){
+                cmp_nova_palavra.setText(cmp_nova_palavra.getText().replaceFirst(" ", ""));
+            }
+        }
+    }//GEN-LAST:event_cmp_nova_palavraFocusLost
+
+    private void btn_salvar_palavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvar_palavraActionPerformed
+        if(cmp_nova_palavra.getText().isEmpty() || cmp_novo_tema.getSelectedItem().toString().isEmpty()){
+    		JOptionPane.showMessageDialog(this, "Todos os campos sÃ£o obrigatÃ³rios.", "ValidaÃ§Ã£o de Campos", JOptionPane.INFORMATION_MESSAGE);
+    		return;
+    	}else if(palavraExiste(cmp_nova_palavra.getText())){
+            JOptionPane.showMessageDialog(this, "A palavra jÃ¡ estÃ¡ cadastrada, tente outra!", "Erro na OperaÃ§Ã£o", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    	
+    	try{
+	    	Palavra novaPalavra = new Palavra(cmp_nova_palavra.getText(), cmp_novo_tema.getSelectedItem().toString().toUpperCase());
+	    	PalavrasDAO.salvaPalavra(novaPalavra);
+    	}
+    	catch (Exception e)
+    	{
+    		JOptionPane.showMessageDialog(this, "Um erro ocorreu ao salvar a palavra: ." + e.getMessage(), "Erro na OperaÃ§Ã£o", JOptionPane.ERROR_MESSAGE);
+    		return;
+    	}
+    	
+    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na OperaÃ§Ã£o", JOptionPane.INFORMATION_MESSAGE);
+    	cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
+    	palavras = PalavrasDAO.getPalavras();
+    	pnl_inicio.setVisible(true);
+        pnl_cadastro.setVisible(false);
+        pnl_partida.setVisible(false);
+        pnl_recordes.setVisible(false);
+    }//GEN-LAST:event_btn_salvar_palavraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -750,6 +808,7 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JButton btn_chutar;
     private javax.swing.JButton btn_encerrar;
     private javax.swing.JButton btn_iniciar;
+    private javax.swing.JButton btn_recordes;
     private javax.swing.JButton btn_salvar_palavra;
     private javax.swing.JButton btn_voltar_cadastro;
     private javax.swing.JButton btn_voltar_recordes;
@@ -758,12 +817,10 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JTextField cmp_nova_palavra;
     private javax.swing.JComboBox cmp_novo_tema;
     private javax.swing.JLabel desenho_forca;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel lbl_pontuacao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -773,12 +830,13 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;    
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_letras_acertadas;
     private javax.swing.JLabel lbl_letras_erradas;
     private javax.swing.JLabel lbl_palavras_acertadas;
     private javax.swing.JLabel lbl_palavras_erradas;
+    private javax.swing.JLabel lbl_pontuacao;
     private javax.swing.JLabel lbl_tema;
     private javax.swing.JPanel pnl_area_palavras;
     private javax.swing.JPanel pnl_cadastro;
@@ -812,7 +870,7 @@ public class Tela extends javax.swing.JFrame {
         pnl_palavras.removeAll();
         posicao_letra = new JLabel[l];
         pnl_palavras.setPreferredSize(new Dimension(20*l,24));
-        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: Número de Linhas,Número de Letras como número de colunas, espaço horizontal e vertical 
+        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: NÃºmero de Linhas,NÃºmero de Letras como nÃºmero de colunas, espaÃ§o horizontal e vertical 
         cmp_entrada_letras.setText("");
         for(i=0;i<l;i++){
             posicao_letra[i] = new JLabel();
@@ -853,7 +911,15 @@ public class Tela extends javax.swing.JFrame {
         imagem = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/jogodaforca/imagens/" + index + ".png"));
         imagem = imagem.getScaledInstance(desenho_forca.getWidth(), novaAltura(desenho_forca.getHeight(), desenho_forca.getWidth(), pnl_forca.getWidth()), Image.SCALE_DEFAULT);
         icon = new ImageIcon(imagem);
-            //desenho_forca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodaforca/imagens/enforcado.png")));
         desenho_forca.setIcon(icon);
     }
+    public boolean palavraExiste(String pal){
+        int i, t = palavras.size();
+        for(i=0;i<t;i++){
+            if(palavras.get(i).getPalavra().equals(pal)) {return true;}
+            
+        }
+        return false;
+    }
+        
 }
