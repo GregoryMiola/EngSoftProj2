@@ -46,32 +46,22 @@ public class Partida {
     public int chutarPalavra(String str){
     	
         int i, l = 0;
-        boolean acertou = false;
-        chutePalavra = true;
+        //chutePalavra = true;
         
-        if(palavra.equalsIgnoreCase(str)){
-        	for(i=0;i<=palavra.length()-1;i++){
-        		if(!posicoes_visiveis[i]){
-        			posicoes_visiveis[i] = true;
-        			l++;
-        		}
-			}
-        	
-        	acertou = true;
-    	}
-        
-        if(!acertou){
-        	for(i=0;i<=str.length()-1;i++){
-        		if(!posicoes_visiveis[i])
-        			verificaLetraErrada(str.charAt(i));
-        		
-        		if(fim_jogo) break;
+        if(palavra.equals(str)){
+            for(i=0;i<palavra.length();i++){
+        	if(!posicoes_visiveis[i]){
+                    posicoes_visiveis[i] = true;
+                    l++;
         	}
-        }else{
-            calcularVitoria(true);
+            }
+            vitoria = true;
+    	}else{
+            vitoria = false;
         }
+        fim_jogo = true;
         
-        chutePalavra = false;
+        //chutePalavra = false;
         return l;
     }
     
@@ -121,7 +111,13 @@ public class Partida {
     public int tamanho(){
         return this.palavra.length();
     }
-    
+    public int QtdLetras(){
+        int i,c=0;
+        for(i=0;i<palavra.length();i++){
+            if(palavra.charAt(i)!=' ')c++;
+        }
+        return c;
+    }
     public boolean isFimDeJogo(){
         return fim_jogo;
     }
@@ -165,11 +161,15 @@ public class Partida {
     }
    
     private void calcularVitoria(boolean isPalavra){
-    	if(isPalavra)
-    		vitoria = getAcertoDeLetras()==palavra.length();
-    	else
-    		vitoria = getAcertoDeLetras()==palavra.replace(" ", "").length();
-    	
+    	if(isPalavra){
+            vitoria = getAcertoDeLetras()==palavra.length();
+        }else{
+            vitoria = getAcertoDeLetras()==palavra.replace(" ", "").length();
+        }
         fim_jogo = vitoria;
+    }
+
+    public int getMax_erros() {
+        return max_erros;
     }
 }
