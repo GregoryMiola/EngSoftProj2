@@ -134,7 +134,7 @@ public class Tela extends javax.swing.JFrame {
         cmp_letras_digitadas.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Pontua√ß√£o:");
+        jLabel3.setText("PontuaÁ„o:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Chutes certos:");
@@ -146,7 +146,7 @@ public class Tela extends javax.swing.JFrame {
         jLabel6.setText("Total de letras:");
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("M√°ximo de chutes errados:");
+        jLabel7.setText("M·ximo de chutes errados:");
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Jogo:");
@@ -523,7 +523,7 @@ public class Tela extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nome", "Pontua√ß√£o"
+                "Nome", "PontuaÁ„o"
             }
         ) {
             Class[] types = new Class [] {
@@ -636,7 +636,7 @@ public class Tela extends javax.swing.JFrame {
             if(partida.isVitorioso()){
             	int pontuacao = partida.getAcertoDeLetras() * 15 + 100;
             	lbl_pontuacao.setText(pontuacao + "");
-            	msg = "Parab√©ns, voc√™ ganhou! Sua pontua√ß√£o foi " + pontuacao + ".\n\nDigite seu nome caso deseje registrar o seu score.";
+            	msg = "ParabÈns, vocÍ ganhou! Sua pontuaÁ„o foi " + pontuacao + ".\n\nDigite seu nome caso deseje registrar o seu score.";
             	nome = JOptionPane.showInputDialog(this, msg, "Fim de Jogo", JOptionPane.QUESTION_MESSAGE);
             	if(nome!=(null)){
             		Recorde recorde = new Recorde(nome, pontuacao);
@@ -717,7 +717,7 @@ public class Tela extends javax.swing.JFrame {
     private void btn_recordesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recordesActionPerformed
     	tbl_recordes.setModel(new javax.swing.table.DefaultTableModel(
                 RecordesDAO.getRecordes(),
-                new String [] { "Nome", "Pontua√ß√£o" }
+                new String [] { "Nome", "PontuaÁ„o" }
             ) {
                 Class[] types = new Class [] {
                     java.lang.String.class, java.lang.Integer.class
@@ -754,10 +754,10 @@ public class Tela extends javax.swing.JFrame {
 
     private void btn_salvar_palavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvar_palavraActionPerformed
         if(cmp_nova_palavra.getText().isEmpty() || cmp_novo_tema.getSelectedItem().toString().isEmpty()){
-    		JOptionPane.showMessageDialog(this, "Todos os campos s√£o obrigat√≥rios.", "Valida√ß√£o de Campos", JOptionPane.INFORMATION_MESSAGE);
+    		JOptionPane.showMessageDialog(this, "Todos os campos s„o obrigatÛrios.", "ValidaÁ„o de Campos", JOptionPane.INFORMATION_MESSAGE);
     		return;
     	}else if(palavraExiste(cmp_nova_palavra.getText())){
-            JOptionPane.showMessageDialog(this, "A palavra j√° est√° cadastrada, tente outra!", "Erro na Opera√ß√£o", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "A palavra j· est· cadastrada, tente outra!", "Erro na OperaÁ„o", JOptionPane.ERROR_MESSAGE);
             return;
         }
     	
@@ -767,11 +767,11 @@ public class Tela extends javax.swing.JFrame {
     	}
     	catch (Exception e)
     	{
-    		JOptionPane.showMessageDialog(this, "Um erro ocorreu ao salvar a palavra: ." + e.getMessage(), "Erro na Opera√ß√£o", JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, "Um erro ocorreu ao salvar a palavra: ." + e.getMessage(), "Erro na OperaÁ„o", JOptionPane.ERROR_MESSAGE);
     		return;
     	}
     	
-    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na Opera√ß√£o", JOptionPane.INFORMATION_MESSAGE);
+    	JOptionPane.showMessageDialog(this, "A palavra foi cadastrada com sucesso.", "Sucesso na OperaÁ„o", JOptionPane.INFORMATION_MESSAGE);
     	cmp_novo_tema.setModel(new javax.swing.DefaultComboBoxModel(PalavrasDAO.getTemas()));
     	palavras = PalavrasDAO.getPalavras();
     	pnl_inicio.setVisible(true);
@@ -784,41 +784,7 @@ public class Tela extends javax.swing.JFrame {
         btn_iniciarActionPerformed(evt);
     }//GEN-LAST:event_btn_nova_partidaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Windows".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Tela().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastro;
     private javax.swing.JButton btn_chutar;
@@ -887,7 +853,7 @@ public class Tela extends javax.swing.JFrame {
         pnl_palavras.removeAll();
         posicao_letra = new JLabel[l];
         pnl_palavras.setPreferredSize(new Dimension(31*l,35));
-        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: N√∫mero de Linhas,N√∫mero de Letras como n√∫mero de colunas, espa√ßo horizontal e vertical 
+        pnl_palavras.setLayout(new java.awt.GridLayout(1,l,2,2));//Define se em GridLayout: N√∫mero de Linhas,N√∫mero de Letras como n√∫mero de colunas, espaÁo horizontal e vertical 
         cmp_entrada_letras.setText("");
         for(i=0;i<l;i++){
             posicao_letra[i] = new JLabel();
