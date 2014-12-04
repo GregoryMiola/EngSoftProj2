@@ -86,14 +86,16 @@ public class SQLiteJDBC {
 	
 	public static List<String[]> getPontos(String sql){
 		List<String[]> lst = new ArrayList<String[]>();
+		int i=0;
 		
 		try{
 			c = DriverManager.getConnection("jdbc:sqlite:forca.db");
 			stmt = c.createStatement();
 			 
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
+			while(rs.next() && (i < 10)){
 				lst.add(new String [] { rs.getString(1), rs.getString(2) });
+				i++;
 			}
 			
 			stmt.close();
